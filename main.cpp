@@ -10,7 +10,7 @@ int main() {
 }
 
 void ReadConfig() {
-    std::string path = "~/";
-    for (const auto & entry : fs::directory_iterator(path))
-        std::cout << entry.path() << std::endl;
+    std::string home_dir = getenv("HOME");
+    home_dir += "/";
+    std::cout << home_dir << std::endl;
 }
