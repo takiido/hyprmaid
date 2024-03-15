@@ -12,18 +12,19 @@ int main() {
 
 void ReadConfig() {
     std::string home_dir = getenv("HOME");
-    fs::path configdir = home_dir + "/.config/hyprmaid/";
-    fs::path configname = configdir.append("hyprmaid.conf");
+    fs::path configDir = home_dir + "/.config/hyprmaid/";
+    fs::path configFile = configDir;
+    configFile.append("hyprmaid.conf");
 
     // Creating a directory
-    if (!fs::is_directory(configdir)) {
-        fs::create_directory(configdir);
+    if (!fs::is_directory(configDir)) {
+        fs::create_directory(configDir);
     }
 
     std::fstream fs;
-    fs.open(configname, std::ios::out | std::ios::app);
+    fs.open(configFile, std::ios::out | std::ios::app);
     fs.close();
-    fs.open(configname, std::ios::in | std::ios::out | std::ios::app);
+    fs.open(configFile, std::ios::in | std::ios::out | std::ios::app);
 
-    std::cout << configname << std::endl;
+    std::cout << configFile << std::endl;
 }
