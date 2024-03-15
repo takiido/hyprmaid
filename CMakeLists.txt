@@ -4,4 +4,6 @@ project(hyprmaid)
 set(CMAKE_CXX_STANDARD 26)
 
 add_executable(hyprmaid main.cpp
+        config/config.cpp
+        config/config.h
 )
