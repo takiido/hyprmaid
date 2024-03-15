@@ -1,7 +1,7 @@
 #include <iostream>
 #include <filesystem>
 #include <fstream>
-//namespace fs = std::filesystem;
+namespace fs = std::filesystem;
 
 void ReadConfig();
 
@@ -11,13 +11,19 @@ int main() {
 }
 
 void ReadConfig() {
-    std::string filename = getenv("HOME");
-    filename += "/.config/hyprmaid/hyprmaid.conf";
+    std::string home_dir = getenv("HOME");
+    fs::path configdir = home_dir + "/.config/hyprmaid/";
+    fs::path configname = configdir.append("hyprmaid.conf");
+
+    // Creating a directory
+    if (!fs::is_directory(configdir)) {
+        fs::create_directory(configdir);
+    }
 
     std::fstream fs;
-    fs.open(filename, std::ios::out | std::ios::app);
+    fs.open(configname, std::ios::out | std::ios::app);
     fs.close();
-    fs.open(filename, std::ios::in | std::ios::out | std::ios::app);
+    fs.open(configname, std::ios::in | std::ios::out | std::ios::app);
 
-    std::cout << filename << std::endl;
+    std::cout << configname << std::endl;
 }
