@@ -17,7 +17,7 @@ public:
     void ReadConfig();
 private:
     std::string home_dir = getenv("HOME");
-    fs::path confFile = home_dir + "/.config/hyprmaid";
+    fs::path confFile = home_dir + "/.config/hyprmaid/hyprmaid.conf";
     fs::path confDir = confFile.parent_path();
     void CheckConfigDir();
     void CheckConfigFile();
