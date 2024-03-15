@@ -9,7 +9,7 @@ config::config() = default;
 config::~config() = default;
 
 void config::CheckConfigDir() {
-    if (fs::is_directory(confDir))
+    if (!fs::is_directory(confDir))
         fs::create_directory(confDir);
 }
 
