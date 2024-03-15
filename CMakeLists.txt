@@ -6,4 +6,6 @@ set(CMAKE_CXX_STANDARD 26)
 add_executable(hyprmaid main.cpp
         config/config.cpp
         config/config.h
+        img_proc/img_proc.cpp
+        img_proc/img_proc.h
 )
